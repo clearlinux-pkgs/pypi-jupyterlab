@@ -4,7 +4,7 @@
 #
 Name     : pypi-jupyterlab
 Version  : 3.2.5
-Release  : 132
+Release  : 133
 URL      : https://files.pythonhosted.org/packages/99/5b/9a80ed03bac9ed4594c594ef8360db159cd2317c0a6a63f829a689e3ee2d/jupyterlab-3.2.5.tar.gz
 Source0  : https://files.pythonhosted.org/packages/99/5b/9a80ed03bac9ed4594c594ef8360db159cd2317c0a6a63f829a689e3ee2d/jupyterlab-3.2.5.tar.gz
 Summary  : JupyterLab computational environment
@@ -17,11 +17,6 @@ Requires: pypi-jupyterlab-python = %{version}-%{release}
 Requires: pypi-jupyterlab-python3 = %{version}-%{release}
 Requires: jupyterlab_server
 BuildRequires : buildreq-distutils3
-Provides: jupyterlab
-Provides: jupyterlab-python
-Provides: jupyterlab-python3
-BuildRequires : jupyter-packaging
-BuildRequires : jupyterlab_server
 BuildRequires : pypi(ipython)
 BuildRequires : pypi(jinja2)
 BuildRequires : pypi(jupyter_core)
@@ -31,6 +26,8 @@ BuildRequires : pypi(jupyterlab_server)
 BuildRequires : pypi(nbclassic)
 BuildRequires : pypi(packaging)
 BuildRequires : pypi(tornado)
+BuildRequires : pypi-jupyter_packaging
+BuildRequires : pypi-jupyterlab_server
 
 %description
 **[Installation](#installation)** |
@@ -102,7 +99,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641450646
+export SOURCE_DATE_EPOCH=1641550496
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
