@@ -4,7 +4,7 @@
 #
 Name     : pypi-jupyterlab
 Version  : 3.4.3
-Release  : 149
+Release  : 150
 URL      : https://files.pythonhosted.org/packages/13/54/c30dfd976a16d428e08de4ded9b1a01ca5c907c31f73e5fe9d5e814eb5ae/jupyterlab-3.4.3.tar.gz
 Source0  : https://files.pythonhosted.org/packages/13/54/c30dfd976a16d428e08de4ded9b1a01ca5c907c31f73e5fe9d5e814eb5ae/jupyterlab-3.4.3.tar.gz
 Summary  : JupyterLab computational environment
@@ -103,7 +103,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1654700241
+export SOURCE_DATE_EPOCH=1656385372
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -151,7 +151,7 @@ mkdir -p  %{buildroot}/usr/share/jupyter/
 mv %{buildroot}/usr/etc/jupyter/jupyter_notebook_config.d %{buildroot}/usr/share/jupyter/
 mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{buildroot}/usr/share/jupyter/
 ## install_append end
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
