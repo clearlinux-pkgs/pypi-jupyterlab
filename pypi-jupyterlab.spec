@@ -4,7 +4,7 @@
 #
 Name     : pypi-jupyterlab
 Version  : 3.4.3
-Release  : 150
+Release  : 151
 URL      : https://files.pythonhosted.org/packages/13/54/c30dfd976a16d428e08de4ded9b1a01ca5c907c31f73e5fe9d5e814eb5ae/jupyterlab-3.4.3.tar.gz
 Source0  : https://files.pythonhosted.org/packages/13/54/c30dfd976a16d428e08de4ded9b1a01ca5c907c31f73e5fe9d5e814eb5ae/jupyterlab-3.4.3.tar.gz
 Summary  : JupyterLab computational environment
@@ -103,7 +103,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656385372
+export SOURCE_DATE_EPOCH=1656396967
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
