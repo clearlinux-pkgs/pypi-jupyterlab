@@ -4,7 +4,7 @@
 #
 Name     : pypi-jupyterlab
 Version  : 3.5.0
-Release  : 160
+Release  : 161
 URL      : https://files.pythonhosted.org/packages/b8/49/a874b9ac68ea2b973071695cdeabd694bf221c03a0c6006b693104d70114/jupyterlab-3.5.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/b8/49/a874b9ac68ea2b973071695cdeabd694bf221c03a0c6006b693104d70114/jupyterlab-3.5.0.tar.gz
 Summary  : JupyterLab computational environment
