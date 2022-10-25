@@ -4,7 +4,7 @@
 #
 Name     : pypi-jupyterlab
 Version  : 3.5.0
-Release  : 162
+Release  : 163
 URL      : https://files.pythonhosted.org/packages/b8/49/a874b9ac68ea2b973071695cdeabd694bf221c03a0c6006b693104d70114/jupyterlab-3.5.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/b8/49/a874b9ac68ea2b973071695cdeabd694bf221c03a0c6006b693104d70114/jupyterlab-3.5.0.tar.gz
 Summary  : JupyterLab computational environment
@@ -106,7 +106,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1666630433
+export SOURCE_DATE_EPOCH=1666712601
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
