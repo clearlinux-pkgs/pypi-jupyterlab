@@ -5,7 +5,7 @@
 #
 Name     : pypi-jupyterlab
 Version  : 3.6.3
-Release  : 170
+Release  : 171
 URL      : https://files.pythonhosted.org/packages/bb/e7/35740a554dfcc5da8f77f8c717b55f82ee3a396272fe2db2005212cc2e40/jupyterlab-3.6.3.tar.gz
 Source0  : https://files.pythonhosted.org/packages/bb/e7/35740a554dfcc5da8f77f8c717b55f82ee3a396272fe2db2005212cc2e40/jupyterlab-3.6.3.tar.gz
 Summary  : JupyterLab computational environment
@@ -100,7 +100,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680272745
+export SOURCE_DATE_EPOCH=1680277682
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -110,6 +110,7 @@ export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -
 export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export MAKEFLAGS=%{?_smp_mflags}
+pypi-dep-fix.py . jupyter-ydoc
 python3 -m build --wheel --skip-dependency-check --no-isolation
 pushd ../buildavx2/
 export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
@@ -117,6 +118,7 @@ export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
+pypi-dep-fix.py . jupyter-ydoc
 python3 -m build --wheel --skip-dependency-check --no-isolation
 
 popd
@@ -132,6 +134,7 @@ cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/3935.4159b022aa6d82e4412
 cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/7294.f71c2889fedcd71bd1ee.js.LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/0036998e52f1b6442c90b9ea6df602bef0294cc5 || :
 cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/jlab_core.4d5114e25256eeddf4e4.js.LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/cd522246a57b87ba54b1b6b92174b9091f70e983 || :
 pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
+pypi-dep-fix.py %{buildroot} jupyter-ydoc
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
