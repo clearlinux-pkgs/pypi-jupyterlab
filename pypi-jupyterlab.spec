@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-jupyterlab
-Version  : 3.6.2
-Release  : 169
-URL      : https://files.pythonhosted.org/packages/c3/42/3ee6d2da0694d8b71f9a781e81902e7e176448e025376b486172c6f269bd/jupyterlab-3.6.2.tar.gz
-Source0  : https://files.pythonhosted.org/packages/c3/42/3ee6d2da0694d8b71f9a781e81902e7e176448e025376b486172c6f269bd/jupyterlab-3.6.2.tar.gz
+Version  : 3.6.3
+Release  : 170
+URL      : https://files.pythonhosted.org/packages/bb/e7/35740a554dfcc5da8f77f8c717b55f82ee3a396272fe2db2005212cc2e40/jupyterlab-3.6.3.tar.gz
+Source0  : https://files.pythonhosted.org/packages/bb/e7/35740a554dfcc5da8f77f8c717b55f82ee3a396272fe2db2005212cc2e40/jupyterlab-3.6.3.tar.gz
 Summary  : JupyterLab computational environment
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause HPND MIT
@@ -89,10 +89,10 @@ python3 components for the pypi-jupyterlab package.
 
 
 %prep
-%setup -q -n jupyterlab-3.6.2
-cd %{_builddir}/jupyterlab-3.6.2
+%setup -q -n jupyterlab-3.6.3
+cd %{_builddir}/jupyterlab-3.6.3
 pushd ..
-cp -a jupyterlab-3.6.2 buildavx2
+cp -a jupyterlab-3.6.3 buildavx2
 popd
 
 %build
@@ -100,7 +100,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679687245
+export SOURCE_DATE_EPOCH=1680272745
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -130,7 +130,7 @@ cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/1036.a055f7326513fc5a04f
 cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/1944.9bb345a40325c23313e9.js.LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/0656099c1cf5c72718c57eb920abcffa02df0a93 || :
 cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/3935.4159b022aa6d82e44127.js.LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/10645e5e81c59dc0f14b79252005ea68d42f1ba7 || :
 cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/7294.f71c2889fedcd71bd1ee.js.LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/0036998e52f1b6442c90b9ea6df602bef0294cc5 || :
-cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/jlab_core.48a41b637653e18e773e.js.LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/cd522246a57b87ba54b1b6b92174b9091f70e983 || :
+cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/jlab_core.4d5114e25256eeddf4e4.js.LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/cd522246a57b87ba54b1b6b92174b9091f70e983 || :
 pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -275,7 +275,7 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/3029.51bdde209f9c4e269943.js
 /usr/share/jupyter/lab/static/3087.06efd084edba2bea6ea1.js
 /usr/share/jupyter/lab/static/3114.5cbcff15783573c636c6.js
-/usr/share/jupyter/lab/static/3122.6da9e52abd5263a9752f.js
+/usr/share/jupyter/lab/static/3122.b1fda55c421da97a00a3.js
 /usr/share/jupyter/lab/static/3236.4fabf963498daeeb9624.js
 /usr/share/jupyter/lab/static/3308.03624912593a42120dea.js
 /usr/share/jupyter/lab/static/3387.bb8976de803b341fe7a3.js
@@ -309,15 +309,14 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/5223.0006e6e211b7c197b9f1.js
 /usr/share/jupyter/lab/static/5289.6c67522c6a1c32fc2ea2.js
 /usr/share/jupyter/lab/static/5383.d630abf49f5cb82bb76f.js
-/usr/share/jupyter/lab/static/5493.7afc94ce5db2401a17a0.js
-/usr/share/jupyter/lab/static/5493.7afc94ce5db2401a17a0.js.LICENSE.txt
+/usr/share/jupyter/lab/static/5493.bc25a653f87ecf6d27f8.js
+/usr/share/jupyter/lab/static/5493.bc25a653f87ecf6d27f8.js.LICENSE.txt
 /usr/share/jupyter/lab/static/5505.d108d38d683afca0e4ed.js
 /usr/share/jupyter/lab/static/5557.625f5943a166b494ee38.js
 /usr/share/jupyter/lab/static/5619.b1928648a190b38e627a.js
 /usr/share/jupyter/lab/static/6005.cda1ecd972909c2a0250.js
 /usr/share/jupyter/lab/static/6064.1a4a55a09511d4907870.js
 /usr/share/jupyter/lab/static/6064.1a4a55a09511d4907870.js.LICENSE.txt
-/usr/share/jupyter/lab/static/6174.b837e8b720639bb0675d.js
 /usr/share/jupyter/lab/static/6218.63b338a58c855634089e.js
 /usr/share/jupyter/lab/static/6282.455f87010a88485c089b.js
 /usr/share/jupyter/lab/static/6443.04025a1d063425902d56.js
@@ -346,7 +345,7 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/7730.7e3a9fb140d2d55a51fc.js
 /usr/share/jupyter/lab/static/7755.d506a1d9dadf30b1e490.js
 /usr/share/jupyter/lab/static/7788.5e16fdcc197e245776fd.js
-/usr/share/jupyter/lab/static/7796.6cae4a397b88ab8cf016.js
+/usr/share/jupyter/lab/static/7796.0dcdca3baf288d835bab.js
 /usr/share/jupyter/lab/static/7900.86dcbbbfb1a3d4f98375.js
 /usr/share/jupyter/lab/static/8012.e4c8f67dc497d26c16fc.js
 /usr/share/jupyter/lab/static/8059.6011120485fc3c4868d4.js
@@ -374,6 +373,7 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/9316.c4abfd78d98bb182cd2f.js
 /usr/share/jupyter/lab/static/9473.2e52d2ba788beec303be.js
 /usr/share/jupyter/lab/static/9473.2e52d2ba788beec303be.js.LICENSE.txt
+/usr/share/jupyter/lab/static/9493.7d21c080b2fe6d48740c.js
 /usr/share/jupyter/lab/static/96.c281b119ab350d7dd3de.js
 /usr/share/jupyter/lab/static/9845.8b6c837a5ff754554b39.js
 /usr/share/jupyter/lab/static/9866.5db2f5cd62fb6e231305.js
@@ -386,9 +386,9 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/fa498fb2596a5235c5c86d7b68a7fbe76e9855c01af4b0e5ab41c41047c648e0.svg
 /usr/share/jupyter/lab/static/index.html
 /usr/share/jupyter/lab/static/index.out.js
-/usr/share/jupyter/lab/static/jlab_core.48a41b637653e18e773e.js
-/usr/share/jupyter/lab/static/jlab_core.48a41b637653e18e773e.js.LICENSE.txt
-/usr/share/jupyter/lab/static/main.b5a59426d23035dbc798.js
+/usr/share/jupyter/lab/static/jlab_core.4d5114e25256eeddf4e4.js
+/usr/share/jupyter/lab/static/jlab_core.4d5114e25256eeddf4e4.js.LICENSE.txt
+/usr/share/jupyter/lab/static/main.c474366c927dbb3da565.js
 /usr/share/jupyter/lab/static/package.json
 /usr/share/jupyter/lab/static/style.js
 /usr/share/jupyter/lab/static/third-party-licenses.json
