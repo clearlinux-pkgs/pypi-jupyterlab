@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-jupyterlab
-Version  : 4.0.6
-Release  : 173
-URL      : https://files.pythonhosted.org/packages/53/e9/6aba4b603ee9c78d1c81bad4112de152bbb078cd77e15377f9f7d8184901/jupyterlab-4.0.6.tar.gz
-Source0  : https://files.pythonhosted.org/packages/53/e9/6aba4b603ee9c78d1c81bad4112de152bbb078cd77e15377f9f7d8184901/jupyterlab-4.0.6.tar.gz
+Version  : 4.0.7
+Release  : 174
+URL      : https://files.pythonhosted.org/packages/e5/7b/ac5d772f730194d85bb4f7f37af5d90ec61d1c90f0ebba3023bd476160e4/jupyterlab-4.0.7.tar.gz
+Source0  : https://files.pythonhosted.org/packages/e5/7b/ac5d772f730194d85bb4f7f37af5d90ec61d1c90f0ebba3023bd476160e4/jupyterlab-4.0.7.tar.gz
 Summary  : JupyterLab computational environment
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause MIT
@@ -90,10 +90,10 @@ python3 components for the pypi-jupyterlab package.
 
 
 %prep
-%setup -q -n jupyterlab-4.0.6
-cd %{_builddir}/jupyterlab-4.0.6
+%setup -q -n jupyterlab-4.0.7
+cd %{_builddir}/jupyterlab-4.0.7
 pushd ..
-cp -a jupyterlab-4.0.6 buildavx2
+cp -a jupyterlab-4.0.7 buildavx2
 popd
 
 %build
@@ -101,35 +101,55 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1694791443
+export SOURCE_DATE_EPOCH=1697054430
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS"
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS"
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
+ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
 export MAKEFLAGS=%{?_smp_mflags}
 pypi-dep-fix.py . jupyter-ydoc
 python3 -m build --wheel --skip-dependency-check --no-isolation
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
-export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
-export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
-export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
-export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS -m64 -march=x86-64-v3 "
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS -m64 -march=x86-64-v3 "
 pypi-dep-fix.py . jupyter-ydoc
 python3 -m build --wheel --skip-dependency-check --no-isolation
 
 popd
 
 %install
+export GCC_IGNORE_WERROR=1
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS"
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS"
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
+ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-jupyterlab
 cp %{_builddir}/jupyterlab-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/3b9af547018e1ee19a1e4925fd162ff378073ac0 || :
-cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/1036.3ccde0c0c5240fa0e85e.js.LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/01ebbe688c25d738b9ee0e2de8113f7351c88e7a || :
+cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/1036.0d1f109c3d842497fd51.js.LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/01ebbe688c25d738b9ee0e2de8113f7351c88e7a || :
 cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/7451.c0257dbfdd320e2c21f5.js.LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/84edab031b618e7ed5e6e4b764e1877913d64820 || :
 cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/9826.406d2a71dc45995bc549.js.LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/b8340cc7166c3efc8fa891de21b9b52fd70151cb || :
 pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
@@ -138,11 +158,11 @@ echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
-export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
-export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
-export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
-export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS -m64 -march=x86-64-v3 "
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS -m64 -march=x86-64-v3 "
 pip install --root=%{buildroot}-v3 --no-deps --ignore-installed dist/*.whl
 popd
 ## install_append content
@@ -268,8 +288,8 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/schemas/@jupyterlab/tooltip-extension/package.json.orig
 /usr/share/jupyter/lab/schemas/@jupyterlab/translation-extension/package.json.orig
 /usr/share/jupyter/lab/schemas/@jupyterlab/translation-extension/plugin.json
-/usr/share/jupyter/lab/static/1036.3ccde0c0c5240fa0e85e.js
-/usr/share/jupyter/lab/static/1036.3ccde0c0c5240fa0e85e.js.LICENSE.txt
+/usr/share/jupyter/lab/static/1036.0d1f109c3d842497fd51.js
+/usr/share/jupyter/lab/static/1036.0d1f109c3d842497fd51.js.LICENSE.txt
 /usr/share/jupyter/lab/static/1085.0b67f0736d85ec41fdd4.js
 /usr/share/jupyter/lab/static/1142.d5442a459b18907c1f91.js
 /usr/share/jupyter/lab/static/1168.e4d38ba5d2b37479ba8a.js
@@ -313,10 +333,9 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/292.3f7844a129f16ec1ffbc.js
 /usr/share/jupyter/lab/static/2929.b88233153dbf33f40b29.js
 /usr/share/jupyter/lab/static/2953.92ff8f12bad6ee06859c.js
-/usr/share/jupyter/lab/static/2987.d9b80c90eb8c9e4e276d.js
 /usr/share/jupyter/lab/static/2990.ea15322a41d3f133989b.js
 /usr/share/jupyter/lab/static/2995.9791e1071c5f095421bf.js
-/usr/share/jupyter/lab/static/3056.3d6572b392dc81bc6193.js
+/usr/share/jupyter/lab/static/3056.8a73f6aacd8ca45f84f9.js
 /usr/share/jupyter/lab/static/30e889b58cbc51adfbb0.woff
 /usr/share/jupyter/lab/static/3123.4d894ae9a109d4911829.js
 /usr/share/jupyter/lab/static/3127.75e12687687a3de3b59d.js
@@ -408,7 +427,7 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/7451.c0257dbfdd320e2c21f5.js.LICENSE.txt
 /usr/share/jupyter/lab/static/7472.58ba8647a489d019c2ef.js
 /usr/share/jupyter/lab/static/7473.5012397d10d3b945ecaa.js
-/usr/share/jupyter/lab/static/7508.13cbca6737f2c3de2e93.js
+/usr/share/jupyter/lab/static/7508.b902347f820c70cd386a.js
 /usr/share/jupyter/lab/static/7511.b381a696cf806983c654.js
 /usr/share/jupyter/lab/static/7517.f3e5d420f4af90d442dd.js
 /usr/share/jupyter/lab/static/7669.343e259c4c8269479f5b.js
@@ -429,7 +448,7 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/8002.25f64485372af5158c83.js
 /usr/share/jupyter/lab/static/8010.1cf8237e9def8404f355.js
 /usr/share/jupyter/lab/static/8012.40cb006f0c180ebafa91.js
-/usr/share/jupyter/lab/static/812.93b4681c78d38d76145b.js
+/usr/share/jupyter/lab/static/812.3812999a9bee5e50657e.js
 /usr/share/jupyter/lab/static/8285.1eac7b7582569be1c3a8.js
 /usr/share/jupyter/lab/static/830.8ddf7d2d91f66a8e4d36.js
 /usr/share/jupyter/lab/static/8302.4c190e10b00fe083570e.js
@@ -442,6 +461,7 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/8678.dcd3dab9025b13eb9be8.js
 /usr/share/jupyter/lab/static/870673df72e70f87c91a.woff
 /usr/share/jupyter/lab/static/8710.5fc5ecb762fb4494db02.js
+/usr/share/jupyter/lab/static/8741.7d0a01ba472e95d3688e.js
 /usr/share/jupyter/lab/static/8768.4a80caab00174c50eb10.js
 /usr/share/jupyter/lab/static/8768.4a80caab00174c50eb10.js.LICENSE.txt
 /usr/share/jupyter/lab/static/8771.327a202178f82f3b15b8.js
@@ -496,8 +516,8 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/fc6ddf5df402b263cfb1.woff
 /usr/share/jupyter/lab/static/index.html
 /usr/share/jupyter/lab/static/index.out.js
-/usr/share/jupyter/lab/static/jlab_core.be6103fe6f6cc2c18378.js
-/usr/share/jupyter/lab/static/main.df4a154f94063e34ef18.js
+/usr/share/jupyter/lab/static/jlab_core.975ecba59e6dfbddeb44.js
+/usr/share/jupyter/lab/static/main.b19b8a0b5c015351f92f.js
 /usr/share/jupyter/lab/static/package.json
 /usr/share/jupyter/lab/static/style.js
 /usr/share/jupyter/lab/static/third-party-licenses.json
