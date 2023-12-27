@@ -7,7 +7,7 @@
 #
 Name     : pypi-jupyterlab
 Version  : 4.0.9
-Release  : 177
+Release  : 178
 URL      : https://files.pythonhosted.org/packages/97/26/781bdea3c9f326c26f7605036deb302c4665ebb10db97c0500dea288841f/jupyterlab-4.0.9.tar.gz
 Source0  : https://files.pythonhosted.org/packages/97/26/781bdea3c9f326c26f7605036deb302c4665ebb10db97c0500dea288841f/jupyterlab-4.0.9.tar.gz
 Summary  : JupyterLab computational environment
