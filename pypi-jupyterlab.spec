@@ -6,10 +6,10 @@
 # autospec commit: 5905be9
 #
 Name     : pypi-jupyterlab
-Version  : 4.1.8
-Release  : 190
-URL      : https://files.pythonhosted.org/packages/86/99/2ecc4df6c8418425475a594ccceee80f46b42c78b4620bf631f0269d64a6/jupyterlab-4.1.8.tar.gz
-Source0  : https://files.pythonhosted.org/packages/86/99/2ecc4df6c8418425475a594ccceee80f46b42c78b4620bf631f0269d64a6/jupyterlab-4.1.8.tar.gz
+Version  : 4.2.0
+Release  : 191
+URL      : https://files.pythonhosted.org/packages/d0/b3/51d88c27256694761cdc56682393360596169cdb38e542c84e9337e577a0/jupyterlab-4.2.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/d0/b3/51d88c27256694761cdc56682393360596169cdb38e542c84e9337e577a0/jupyterlab-4.2.0.tar.gz
 Summary  : JupyterLab computational environment
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause HPND MIT
@@ -93,10 +93,10 @@ python3 components for the pypi-jupyterlab package.
 
 
 %prep
-%setup -q -n jupyterlab-4.1.8
-cd %{_builddir}/jupyterlab-4.1.8
+%setup -q -n jupyterlab-4.2.0
+cd %{_builddir}/jupyterlab-4.2.0
 pushd ..
-cp -a jupyterlab-4.1.8 buildavx2
+cp -a jupyterlab-4.2.0 buildavx2
 popd
 
 %build
@@ -104,7 +104,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1714323572
+export SOURCE_DATE_EPOCH=1715015023
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -152,10 +152,10 @@ export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-jupyterlab
 cp %{_builddir}/jupyterlab-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/3b9af547018e1ee19a1e4925fd162ff378073ac0 || :
-cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/1036.0d1f109c3d842497fd51.js.LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/01ebbe688c25d738b9ee0e2de8113f7351c88e7a || :
-cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/627.7e292370f4d61d9e8648.js.LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/cd522246a57b87ba54b1b6b92174b9091f70e983 || :
+cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/1036.4adf7509135ea39ecb91.js.LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/01ebbe688c25d738b9ee0e2de8113f7351c88e7a || :
+cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/4912.4371d46fb589b52e231b.js.LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/cd522246a57b87ba54b1b6b92174b9091f70e983 || :
 cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/7451.c0257dbfdd320e2c21f5.js.LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/84edab031b618e7ed5e6e4b764e1877913d64820 || :
-cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/9826.38c59b84e02def79216e.js.LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/b8340cc7166c3efc8fa891de21b9b52fd70151cb || :
+cp %{_builddir}/jupyterlab-%{version}/jupyterlab/static/9826.406d2a71dc45995bc549.js.LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-jupyterlab/b8340cc7166c3efc8fa891de21b9b52fd70151cb || :
 python3 -m installer --destdir=%{buildroot} dist/*.whl
 pypi-dep-fix.py %{buildroot} jupyter-ydoc
 echo ----[ mark ]----
@@ -205,7 +205,6 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/schemas/@jupyterlab/apputils-extension/sanitizer.json
 /usr/share/jupyter/lab/schemas/@jupyterlab/apputils-extension/themes.json
 /usr/share/jupyter/lab/schemas/@jupyterlab/apputils-extension/utilityCommands.json
-/usr/share/jupyter/lab/schemas/@jupyterlab/apputils-extension/workspaces.json
 /usr/share/jupyter/lab/schemas/@jupyterlab/cell-toolbar-extension/package.json.orig
 /usr/share/jupyter/lab/schemas/@jupyterlab/cell-toolbar-extension/plugin.json
 /usr/share/jupyter/lab/schemas/@jupyterlab/celltags-extension/package.json.orig
@@ -293,23 +292,27 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/schemas/@jupyterlab/tooltip-extension/package.json.orig
 /usr/share/jupyter/lab/schemas/@jupyterlab/translation-extension/package.json.orig
 /usr/share/jupyter/lab/schemas/@jupyterlab/translation-extension/plugin.json
-/usr/share/jupyter/lab/static/1036.0d1f109c3d842497fd51.js
-/usr/share/jupyter/lab/static/1036.0d1f109c3d842497fd51.js.LICENSE.txt
+/usr/share/jupyter/lab/schemas/@jupyterlab/workspaces-extension/menu.json
+/usr/share/jupyter/lab/schemas/@jupyterlab/workspaces-extension/package.json.orig
+/usr/share/jupyter/lab/schemas/@jupyterlab/workspaces-extension/sidebar.json
+/usr/share/jupyter/lab/static/1036.4adf7509135ea39ecb91.js
+/usr/share/jupyter/lab/static/1036.4adf7509135ea39ecb91.js.LICENSE.txt
 /usr/share/jupyter/lab/static/1085.0b67f0736d85ec41fdd4.js
 /usr/share/jupyter/lab/static/1142.d5442a459b18907c1f91.js
-/usr/share/jupyter/lab/static/1166.8ac24b1cdbba2a335fac.js
+/usr/share/jupyter/lab/static/1166.08f9e1fd722f61c9b69c.js
 /usr/share/jupyter/lab/static/1168.0a95b9c93afe61ceb527.js
 /usr/share/jupyter/lab/static/1294.9d27be1098bc8abebe3f.js
-/usr/share/jupyter/lab/static/1410.e2302ff5f564d6e596bb.js
+/usr/share/jupyter/lab/static/1410.d8f5e39e1e01d696d2ab.js
 /usr/share/jupyter/lab/static/1420.e8486ed074346bc629ca.js
 /usr/share/jupyter/lab/static/1448.c391061d8a8344f9d177.js
 /usr/share/jupyter/lab/static/1452.4cc17f31511d1f9c6052.js
-/usr/share/jupyter/lab/static/1464.4b120a718f613189bd64.js
 /usr/share/jupyter/lab/static/1467.dcd89539f6477c1367af.js
 /usr/share/jupyter/lab/static/1550.09375e869bc25429b07a.js
 /usr/share/jupyter/lab/static/1581.e988a625b879002dcc04.js
 /usr/share/jupyter/lab/static/1581.e988a625b879002dcc04.js.LICENSE.txt
 /usr/share/jupyter/lab/static/1608.61240f3db67d3d952790.js
+/usr/share/jupyter/lab/static/1610.5f9622f4a515447f78fe.js
+/usr/share/jupyter/lab/static/1610.5f9622f4a515447f78fe.js.LICENSE.txt
 /usr/share/jupyter/lab/static/1716.a6bbe1ae8a1986a73623.js
 /usr/share/jupyter/lab/static/1760.9a71f4501e9bbaa4c4d8.js
 /usr/share/jupyter/lab/static/1776.4f9305d35480467b23c9.js
@@ -323,32 +326,32 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/1cb1c39ea642f26a4dfe.woff
 /usr/share/jupyter/lab/static/2039.aa079dac5c520f93b234.js
 /usr/share/jupyter/lab/static/2090.abc86741318f76c3d726.js
-/usr/share/jupyter/lab/static/2091.600b1c32af186f6405f9.js
-/usr/share/jupyter/lab/static/2104.296346db0067b4883fbf.js
+/usr/share/jupyter/lab/static/2091.0ad2070604beb93b34c5.js
+/usr/share/jupyter/lab/static/2102.ff1893c4bd1104a1f57d.js
+/usr/share/jupyter/lab/static/2104.96885e414ee656615c2b.js
 /usr/share/jupyter/lab/static/2145.be9ec610f29703694fcf.js
 /usr/share/jupyter/lab/static/2254.55c69210925ec9b28dd9.js
 /usr/share/jupyter/lab/static/226.5dc3528c008170b37b21.js
 /usr/share/jupyter/lab/static/2295.cda0f7182bf2a1a03c5a.js
-/usr/share/jupyter/lab/static/2320.04abae549b19363c2fdd.js
 /usr/share/jupyter/lab/static/2363.6eef078cb37c32d7fbc3.js
 /usr/share/jupyter/lab/static/2459.9f9cb02561de1bec73ff.js
 /usr/share/jupyter/lab/static/2485.dab750ed66209df61fe1.js
 /usr/share/jupyter/lab/static/2551.b07d561a12360c38c589.js
 /usr/share/jupyter/lab/static/2579.b19edefeb9ee4daed4bd.js
-/usr/share/jupyter/lab/static/2617.9c299e26785f7646cb39.js
+/usr/share/jupyter/lab/static/2584.e4b860ab848de94978cf.js
 /usr/share/jupyter/lab/static/2646.0864fb63d7ab1ed16893.js
 /usr/share/jupyter/lab/static/2655.71a94960aa4ab2040d8f.js
 /usr/share/jupyter/lab/static/26683bf201fb258a2237.woff
 /usr/share/jupyter/lab/static/2727.6925b8cf1c5363f40138.js
 /usr/share/jupyter/lab/static/2755.696bab6bdca0d9a78131.js
-/usr/share/jupyter/lab/static/2800.680b1fa0a4c66c69bb1e.js
+/usr/share/jupyter/lab/static/2800.8acae2f2fef55d2ccdf2.js
 /usr/share/jupyter/lab/static/2857.27a6e85f5c4c092ab8a2.js
 /usr/share/jupyter/lab/static/2909.e190307f7f84c7691068.js
-/usr/share/jupyter/lab/static/292.3f7844a129f16ec1ffbc.js
+/usr/share/jupyter/lab/static/2929.b88233153dbf33f40b29.js
 /usr/share/jupyter/lab/static/2953.92ff8f12bad6ee06859c.js
 /usr/share/jupyter/lab/static/2990.ea15322a41d3f133989b.js
-/usr/share/jupyter/lab/static/2995.0448b3ed572d9cc5fcc7.js
-/usr/share/jupyter/lab/static/3056.8a73f6aacd8ca45f84f9.js
+/usr/share/jupyter/lab/static/2995.334184c36a45c82ad564.js
+/usr/share/jupyter/lab/static/3056.2c8f5c81b8ad8062906a.js
 /usr/share/jupyter/lab/static/30e889b58cbc51adfbb0.woff
 /usr/share/jupyter/lab/static/3123.85cea4be2e2ed3f9654f.js
 /usr/share/jupyter/lab/static/32792104b5ef69eded90.woff
@@ -356,7 +359,7 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/3308.764d71af7e591cdb1345.js
 /usr/share/jupyter/lab/static/3520.3495b98946de6960ace8.js
 /usr/share/jupyter/lab/static/3528.3b5ef5f31d460b5fcd01.js
-/usr/share/jupyter/lab/static/3547.bd90e90bfe79911486e8.js
+/usr/share/jupyter/lab/static/3547.2a00f51cd14b6060c5d6.js
 /usr/share/jupyter/lab/static/3549.24f2fe646d8128bc9db0.js
 /usr/share/jupyter/lab/static/355254db9ca10a09a3b5.woff
 /usr/share/jupyter/lab/static/3601.5c17c015d71b69ddcab3.js
@@ -365,7 +368,7 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/3724.a4657dc16be2ffc49282.js
 /usr/share/jupyter/lab/static/373c04fd2418f5c77eea.eot
 /usr/share/jupyter/lab/static/378.6d0f0fc4c8a2eb80ac43.js
-/usr/share/jupyter/lab/static/3783.93d5366ab28a19e1f0f9.js
+/usr/share/jupyter/lab/static/3783.36bf783a511cc87997c0.js
 /usr/share/jupyter/lab/static/3807.08a8fd824036c30b3746.js
 /usr/share/jupyter/lab/static/383.db345dbeef5ef774e50c.js
 /usr/share/jupyter/lab/static/3871.ba96e5b53bb16df56618.js
@@ -379,18 +382,21 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/4008.86acbefff6de679f77b5.js
 /usr/share/jupyter/lab/static/4008.86acbefff6de679f77b5.js.LICENSE.txt
 /usr/share/jupyter/lab/static/4017.096a74a538e031b6d346.js
-/usr/share/jupyter/lab/static/4043.aa012978c41d1d1b2f14.js
+/usr/share/jupyter/lab/static/4043.c57e85faf640ba37b87c.js
 /usr/share/jupyter/lab/static/406.81906f96059e31e907a2.js
 /usr/share/jupyter/lab/static/4086.3087c0abed5ca45b823b.js
-/usr/share/jupyter/lab/static/4136.4b9f72f85f49f979ebb8.js
-/usr/share/jupyter/lab/static/4136.4b9f72f85f49f979ebb8.js.LICENSE.txt
+/usr/share/jupyter/lab/static/4136.aba58697fed7e4cded7c.js
+/usr/share/jupyter/lab/static/4136.aba58697fed7e4cded7c.js.LICENSE.txt
 /usr/share/jupyter/lab/static/4139.303ee7374c742287be85.js
 /usr/share/jupyter/lab/static/4155.5a8d6736017097028d78.js
+/usr/share/jupyter/lab/static/4244.3d69bbe0937f69ca1f80.js
 /usr/share/jupyter/lab/static/4283.f6092d8b7f2e53118d1b.js
 /usr/share/jupyter/lab/static/4291.e5d8997127541f75fdaf.js
-/usr/share/jupyter/lab/static/4405.43dab120fea32f30bbb9.js
+/usr/share/jupyter/lab/static/4405.196dd63db3761b4bb7fe.js
 /usr/share/jupyter/lab/static/4419.93938494f456cd76a7e3.js
 /usr/share/jupyter/lab/static/4452.2f8819684b96ecff5231.js
+/usr/share/jupyter/lab/static/4457.0add5dec58939a80e2c3.js
+/usr/share/jupyter/lab/static/4503.5f41fcfefb7e83b6190e.js
 /usr/share/jupyter/lab/static/4519.6b784d052db42e93eff2.js
 /usr/share/jupyter/lab/static/4562.72444a09f5f092646490.js
 /usr/share/jupyter/lab/static/4591.428531724f49fe824ffa.js
@@ -399,11 +405,14 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/4765.093b4f8b3cee1251db8d.js
 /usr/share/jupyter/lab/static/481e39042508ae313a60.woff
 /usr/share/jupyter/lab/static/4878.73004381601237a3ef9c.js
-/usr/share/jupyter/lab/static/49.7233f68f95d10b85a83e.js
-/usr/share/jupyter/lab/static/4986.a497cdda4b7152902568.js
+/usr/share/jupyter/lab/static/49.43ad810fe0adbd6be564.js
+/usr/share/jupyter/lab/static/4912.4371d46fb589b52e231b.js
+/usr/share/jupyter/lab/static/4912.4371d46fb589b52e231b.js.LICENSE.txt
+/usr/share/jupyter/lab/static/4986.c819184e09e1e15ef06b.js
 /usr/share/jupyter/lab/static/5041.cdc120bda0a0dec4cfc2.js
+/usr/share/jupyter/lab/static/5083.4926253681abafa806f9.js
 /usr/share/jupyter/lab/static/5157.9c77dc27a251d4135876.js
-/usr/share/jupyter/lab/static/5201.8866042bae350659528a.js
+/usr/share/jupyter/lab/static/5201.26a6f909d5e2eaa4ada3.js
 /usr/share/jupyter/lab/static/5203.c002d40ac647dc6e1d61.js
 /usr/share/jupyter/lab/static/526.601d8ddd8347cd7790b9.js
 /usr/share/jupyter/lab/static/5331.0cd3f010bb08983ec3fd.js
@@ -415,33 +424,33 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/5881.3946238aa4afdcf4f964.js
 /usr/share/jupyter/lab/static/5959.a6b1fd3b03d3649ea8b1.js
 /usr/share/jupyter/lab/static/5cda41563a095bd70c78.woff
-/usr/share/jupyter/lab/static/6001.963601fcecb8b4c1d1f1.js
+/usr/share/jupyter/lab/static/6001.fd42cb874026fb9730e8.js
 /usr/share/jupyter/lab/static/6059.d83e7323b2ee1aa16009.js
 /usr/share/jupyter/lab/static/6163.f5b51a9f0df4846ba40f.js
+/usr/share/jupyter/lab/static/6177.a4ddefac453fccec8424.js
 /usr/share/jupyter/lab/static/6207.a8079c8d8a61039dd530.js
 /usr/share/jupyter/lab/static/6243.2efd673d1304c43b7b78.js
 /usr/share/jupyter/lab/static/6267.1def2916929e185ab9fc.js
-/usr/share/jupyter/lab/static/627.7e292370f4d61d9e8648.js
-/usr/share/jupyter/lab/static/627.7e292370f4d61d9e8648.js.LICENSE.txt
 /usr/share/jupyter/lab/static/6359.4b994bfd6b1dea2d6fe3.js
-/usr/share/jupyter/lab/static/6436.af125ed24ec50754c661.js
+/usr/share/jupyter/lab/static/6436.8d9ba427de4ab1053871.js
 /usr/share/jupyter/lab/static/6443.e6b52d3732b3e8513a71.js
-/usr/share/jupyter/lab/static/6515.56c63929fb079a820cbc.js
-/usr/share/jupyter/lab/static/6532.bb7137729a2d6d4e6ddf.js
+/usr/share/jupyter/lab/static/6515.1abddf12ebb7ad96c791.js
+/usr/share/jupyter/lab/static/6527.34b14b195521fc6cb65c.js
+/usr/share/jupyter/lab/static/6532.598324868e83c4cbe4e4.js
 /usr/share/jupyter/lab/static/6560.f42276a0b1b92aea515b.js
 /usr/share/jupyter/lab/static/6595.6a1d7e1abbf186dd119b.js
 /usr/share/jupyter/lab/static/6686.3c518aa6e5f9785fb486.js
 /usr/share/jupyter/lab/static/6770.fd7084bb2f4b7622401d.js
 /usr/share/jupyter/lab/static/6778.345e6ac9818e30317310.js
 /usr/share/jupyter/lab/static/6815.0b699f0c162a24b0dbe3.js
-/usr/share/jupyter/lab/static/6888.9d3914817f3290827a64.js
+/usr/share/jupyter/lab/static/6888.f71353e198bce9c2f409.js
 /usr/share/jupyter/lab/static/6898.742a7062fa979fb68a80.js
 /usr/share/jupyter/lab/static/7080.1330328bb6f46b4da81e.js
 /usr/share/jupyter/lab/static/7112.d5120c85ebd17620dda0.js
 /usr/share/jupyter/lab/static/7161.353c3ab960df72e6f1ea.js
 /usr/share/jupyter/lab/static/7173.e28f63dbd553818e07d3.js
-/usr/share/jupyter/lab/static/7178.5f3dd740449b44efad2d.js
-/usr/share/jupyter/lab/static/7178.5f3dd740449b44efad2d.js.LICENSE.txt
+/usr/share/jupyter/lab/static/7178.373c24769ba5912c2eea.js
+/usr/share/jupyter/lab/static/7178.373c24769ba5912c2eea.js.LICENSE.txt
 /usr/share/jupyter/lab/static/721921bab0d001ebff02.woff
 /usr/share/jupyter/lab/static/7245.c0cae8787dcd00b991b7.js
 /usr/share/jupyter/lab/static/7272.72081c10e0f645b0631a.js
@@ -451,7 +460,7 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/7313.4a8a9a1eee6f7ef15ee1.js
 /usr/share/jupyter/lab/static/7313.4a8a9a1eee6f7ef15ee1.js.LICENSE.txt
 /usr/share/jupyter/lab/static/7317.af8a7da0f881a22752c1.js
-/usr/share/jupyter/lab/static/7318.397bf8e913e825b2be27.js
+/usr/share/jupyter/lab/static/7318.f5a0db6dd94488328be5.js
 /usr/share/jupyter/lab/static/7363.abe8e31a91e113753bae.js
 /usr/share/jupyter/lab/static/7384.60351e008d8f687e8fcc.js
 /usr/share/jupyter/lab/static/7390.8253478b90f756692702.js
@@ -463,8 +472,6 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/7472.58ba8647a489d019c2ef.js
 /usr/share/jupyter/lab/static/7473.5012397d10d3b945ecaa.js
 /usr/share/jupyter/lab/static/7508.b902347f820c70cd386a.js
-/usr/share/jupyter/lab/static/7511.b381a696cf806983c654.js
-/usr/share/jupyter/lab/static/7517.f3e5d420f4af90d442dd.js
 /usr/share/jupyter/lab/static/7629.1f295461ebf56a48c197.js
 /usr/share/jupyter/lab/static/7669.343e259c4c8269479f5b.js
 /usr/share/jupyter/lab/static/7702.c479c69f7a532f7b3fd5.js
@@ -474,20 +481,21 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/7763.19a095394000f9ef62bd.js
 /usr/share/jupyter/lab/static/7763.19a095394000f9ef62bd.js.LICENSE.txt
 /usr/share/jupyter/lab/static/7775.3e0dee729369fe3d5008.js
-/usr/share/jupyter/lab/static/7823.817687f13e9a6781fdd3.js
+/usr/share/jupyter/lab/static/7823.f3c8154418bc214dc89a.js
 /usr/share/jupyter/lab/static/7827.e36d073d947bf02a05e3.js
 /usr/share/jupyter/lab/static/7848.e83aa4b90ae87209abb8.js
 /usr/share/jupyter/lab/static/786.8a99ee7dbd7bd0eb9dce.js
 /usr/share/jupyter/lab/static/7877.a4c46a784149533b91d4.js
 /usr/share/jupyter/lab/static/7887.128a155df5d25e88c0ce.js
 /usr/share/jupyter/lab/static/7946.7fe46d47492e459b7cb5.js
-/usr/share/jupyter/lab/static/795.47ab66037ef33f808f09.js
+/usr/share/jupyter/lab/static/795.c780bf11bb08527e3c84.js
 /usr/share/jupyter/lab/static/79d088064beb3826054f.eot
 /usr/share/jupyter/lab/static/8002.25f64485372af5158c83.js
 /usr/share/jupyter/lab/static/8010.1cf8237e9def8404f355.js
 /usr/share/jupyter/lab/static/8012.40cb006f0c180ebafa91.js
-/usr/share/jupyter/lab/static/812.c8640af87f151ae89752.js
+/usr/share/jupyter/lab/static/812.6dd8f4cea8383e031515.js
 /usr/share/jupyter/lab/static/8152.5baac73844a065f34284.js
+/usr/share/jupyter/lab/static/8267.01bec3949b651535e6f5.js
 /usr/share/jupyter/lab/static/8285.1eac7b7582569be1c3a8.js
 /usr/share/jupyter/lab/static/8302.5c5e5a2da7fe74b12a1d.js
 /usr/share/jupyter/lab/static/8319.80fcbc832e1eb20b71e7.js
@@ -498,12 +506,11 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/8493.fc635229db38e6fc6aa2.js
 /usr/share/jupyter/lab/static/8498.27a245b23921914bf5c2.js
 /usr/share/jupyter/lab/static/8512.1af96655287fd124877b.js
-/usr/share/jupyter/lab/static/8625.a7308ba1283f47df16a1.js
 /usr/share/jupyter/lab/static/8678.dcd3dab9025b13eb9be8.js
 /usr/share/jupyter/lab/static/870673df72e70f87c91a.woff
 /usr/share/jupyter/lab/static/8710.5fc5ecb762fb4494db02.js
 /usr/share/jupyter/lab/static/8738.782816e9072ac38762b4.js
-/usr/share/jupyter/lab/static/8771.327a202178f82f3b15b8.js
+/usr/share/jupyter/lab/static/8771.ac4c870ed77005ec8e34.js
 /usr/share/jupyter/lab/static/8787.4d36d28dcf94bf59cbfe.js
 /usr/share/jupyter/lab/static/8805.0f14a91b024b59c039a7.js
 /usr/share/jupyter/lab/static/881.972f79365eed0f77378e.js
@@ -512,9 +519,9 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/88b98cad3688915e50da.woff
 /usr/share/jupyter/lab/static/8ea8791754915a898a31.woff2
 /usr/share/jupyter/lab/static/8ea8dbb1b02e6f730f55.woff
-/usr/share/jupyter/lab/static/9.0e0cba0ccc2a4b670600.js
-/usr/share/jupyter/lab/static/9030.260bc05e28eccff70ae8.js
-/usr/share/jupyter/lab/static/9041.df39043656c7233552e4.js
+/usr/share/jupyter/lab/static/9.82c3bf54739d037b7bd1.js
+/usr/share/jupyter/lab/static/9030.61b135ed4411056792ab.js
+/usr/share/jupyter/lab/static/9041.d439f3e9bdd4ea5a681b.js
 /usr/share/jupyter/lab/static/9055.bd710a8db8883a836b59.js
 /usr/share/jupyter/lab/static/9109.fa3ee74a5c0f378f4d51.js
 /usr/share/jupyter/lab/static/9192.db4337a516b7f38d1f89.js
@@ -524,23 +531,19 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/9362.823dcfac216f8057452d.js
 /usr/share/jupyter/lab/static/9395.b59dceae72715c9f885c.js
 /usr/share/jupyter/lab/static/9409.34c33ed11e2d6f318480.js
-/usr/share/jupyter/lab/static/942.93c8de61ea9ea08ec097.js
-/usr/share/jupyter/lab/static/9421.022dc7b4e9a2c80c32c2.js
+/usr/share/jupyter/lab/static/942.68bd92fc10c9f9d7004f.js
 /usr/share/jupyter/lab/static/9440.04751e25c9cde059ff37.js
 /usr/share/jupyter/lab/static/9445.fe5e9e5b728de8d15873.js
 /usr/share/jupyter/lab/static/9545.f0f7a2959bdd17ee3448.js
-/usr/share/jupyter/lab/static/9579.4b1b079b6b7cd2924338.js
-/usr/share/jupyter/lab/static/9579.4b1b079b6b7cd2924338.js.LICENSE.txt
 /usr/share/jupyter/lab/static/9621.9cbfa52c42927bb398b4.js
-/usr/share/jupyter/lab/static/9653.d93c93e084cd5e93cd2d.js
+/usr/share/jupyter/lab/static/9653.52cac2cc6fb3dc3bf28a.js
 /usr/share/jupyter/lab/static/9674eb1bd55047179038.svg
 /usr/share/jupyter/lab/static/9738.c0234a1f7f6ac262f560.js
 /usr/share/jupyter/lab/static/9747.6dd327f4928c6989ea8a.js
 /usr/share/jupyter/lab/static/9747.6dd327f4928c6989ea8a.js.LICENSE.txt
-/usr/share/jupyter/lab/static/9826.38c59b84e02def79216e.js
-/usr/share/jupyter/lab/static/9826.38c59b84e02def79216e.js.LICENSE.txt
+/usr/share/jupyter/lab/static/9826.406d2a71dc45995bc549.js
+/usr/share/jupyter/lab/static/9826.406d2a71dc45995bc549.js.LICENSE.txt
 /usr/share/jupyter/lab/static/9834b82ad26e2a37583d.woff2
-/usr/share/jupyter/lab/static/9870.70b2b59cc96c3a97c489.js
 /usr/share/jupyter/lab/static/9984.6ba5355e0d5487d5ac63.js
 /usr/share/jupyter/lab/static/a009bea404f7a500ded4.woff
 /usr/share/jupyter/lab/static/a3b9817780214caf01e8.svg
@@ -562,13 +565,15 @@ mv %{buildroot}/usr/etc/jupyter/jupyter_server_config.d/jupyterlab.json  %{build
 /usr/share/jupyter/lab/static/fc6ddf5df402b263cfb1.woff
 /usr/share/jupyter/lab/static/index.html
 /usr/share/jupyter/lab/static/index.out.js
-/usr/share/jupyter/lab/static/jlab_core.b91074b1e57242ddcd31.js
-/usr/share/jupyter/lab/static/main.c8fa35da61e4a90aae4e.js
+/usr/share/jupyter/lab/static/jlab_core.b207cc5f30e679038452.js
+/usr/share/jupyter/lab/static/main.42d188fdc03ddbb28b9a.js
 /usr/share/jupyter/lab/static/package.json
 /usr/share/jupyter/lab/static/style.js
 /usr/share/jupyter/lab/static/third-party-licenses.json
 /usr/share/jupyter/lab/themes/@jupyterlab/theme-dark-extension/index.css
 /usr/share/jupyter/lab/themes/@jupyterlab/theme-dark-extension/index.js
+/usr/share/jupyter/lab/themes/@jupyterlab/theme-dark-high-contrast-extension/index.css
+/usr/share/jupyter/lab/themes/@jupyterlab/theme-dark-high-contrast-extension/index.js
 /usr/share/jupyter/lab/themes/@jupyterlab/theme-light-extension/index.css
 /usr/share/jupyter/lab/themes/@jupyterlab/theme-light-extension/index.js
 
